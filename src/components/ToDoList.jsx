@@ -4,6 +4,8 @@ const ToDoList = (props) => {
 
   const {
     tasks = [],
+    onDeleetTask,
+    onTaskCompleteCamge,
   } = props
 
 
@@ -20,6 +22,8 @@ const ToDoList = (props) => {
         {tasks.map((itemn) => (
           <ToDoItemn
             key={itemn.id}
+            onDeleetTask={onDeleetTask}
+            onTaskCompleteCamge={onTaskCompleteCamge}
             {...itemn}
           />
         ))}

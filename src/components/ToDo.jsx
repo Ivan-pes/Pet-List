@@ -11,16 +11,45 @@ const ToDo = () => {
 
   ];
 
+  const deleteAllTasks = () => {
+    console.log('Deleet tasks')
+  };
+
+  const deleteTask = (taskId) => {
+    console.log(`task deleted with ${taskId}`)
+  }
+
+  const toggleCard = (taskId, isDone) => {
+    console.log(`task is ${taskId}, ${isDone ? 'is done' : 'isnt done'}`)
+  }
+
+  const shearchForm = (query) => {
+    console.log(`we found ${query}`)
+  }
+
+  const addTask = () => {
+    console.log('task eded')
+  }
+
     return (
     <div className="todo">
       <h1 className="todo__title">To Do List</h1>
-     <AddTaskForm />
-      <SearchTaskForm />
+        <AddTaskForm
+        submitTask={addTask}
+        />
+        <SearchTaskForm
+        onSearchTask={shearchForm}
+        />
         <ToDoInfo
           total={params.length}
           done={params.filter(({ done }) => done).length}
+          onDeleteAllTasks={deleteAllTasks}
         />
-      <ToDoList tasks={params} />
+        <ToDoList
+          tasks={params}
+          onDeleetTask={deleteTask}
+          onTaskCompleteCamge={toggleCard}
+        />
     </div>
     )
 }
